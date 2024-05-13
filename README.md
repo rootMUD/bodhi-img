@@ -62,35 +62,17 @@ Run smart contract test with `yarn hardhat:test`
 - Edit your smart contract `VectorDBProposalGovernancer.sol` in `packages/hardhat/contracts`
 - Edit your frontend in `packages/nextjs/pages`
 - Edit your deployment scripts in `packages/hardhat/deploy`
-## Reference
-
-如果您想了解数据流的实现，请先下载我们实现的client：<a href="https://github.com/NonceGeek/movespace_db_uploader_cli/blob/main/movespace_db_uploader_cli">movespace_db_uploader_cli</a>
-
-#### 请确保使用变量“EMBEDBASE_KEY” 将您获取的app_key存储在dotenv（.env）中
-
-参数列表和类型：
-```
- [path: :string, embedbaseid: :string, type: :string, insert: :boolean, delete: :boolean, metadata: :string],
-```
-参数别名：
-```
-f: :filepath, e: :embedbaseid, t: :type, i: :insert, d: :delete, m: :metadata
-```
-使用格式：
-```
-./movespace_db_uploader_cli --type [mddoc, code] --path [the_path_for_content] --metadata [the_path_for_metadata] --embedbaseid [embedbase_id] --insert
-```
-使用事例：
-
-```
-$ ./movespace_db_uploader_cli --type mddoc --path example_data/eth/analysis/erc20.md --metadata example_data/eth/analysis/erc20.json --embedbaseid eth-smart-contracts-analysis --insert
-$ ./movespace_db_uploader_cli --type code --path example_data/eth/sliced/erc20.json --embedbaseid eth-smart-contracts-sliced --insert
-```
-
-
 
 
 ## Architecture
 
-![AI-based Smart Contract Explorer (3)](https://github.com/NonceGeek/ai-based-smart-contract-explorer/assets/12784118/505467a6-03ed-4730-abb8-5869d7bb5228)
+```
++----------------------------+             Read & Write Likes & Comments
+| Asset Tagger Smart Contrct |---------------------------------------------------------+
++----------------------------+                                                         |
+                                                                                       |
++--------------+ Save in +---------+ Call by +--------------------------+ Get Imgs  +------+
+|  Img Assets  |---------| Supbase |---------| Deno Lightweight backend |-----------| dApp |
++--------------+         +---------+         +--------------------------+           +------+
+```
 
