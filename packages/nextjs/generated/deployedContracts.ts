@@ -1,11 +1,19 @@
 const contracts = {
-  10: [
+  // 10: [
+  //   {
+  //     chainId: "10",
+  //     name: "optimism",
+  //     contracts: {
+  //       AssetTagger: {
+  //         address: "0x91Ab92D5a6d85a25f4d16A89B16687a8964F5A6A",
+  12227332: [
     {
-      chainId: "10",
-      name: "optimism",
+      chainId: "12227332",
+      name: "Neo",
       contracts: {
+        // Hint: config here.
         AssetTagger: {
-          address: "0x91Ab92D5a6d85a25f4d16A89B16687a8964F5A6A",
+          address: "0xFD2eAE748407bFf503212599d0992b6d26Fb310a",
           abi: [
             {
               inputs: [

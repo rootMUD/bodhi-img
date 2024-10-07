@@ -1,4 +1,5 @@
 import * as chains from "wagmi/chains";
+import { Chain } from "wagmi";
 
 export type ScaffoldConfig = {
   targetNetwork: chains.Chain;
@@ -11,7 +12,25 @@ export type ScaffoldConfig = {
 
 const scaffoldConfig = {
   // The network where your DApp lives in
-  targetNetwork: chains.optimism,
+  // targetNetwork: chains.optimism,
+  targetNetwork: {
+    id: 12227332,
+    name: "Neo",
+    network: "neo",
+    nativeCurrency: {
+      name: "Gas",
+      symbol: "GAS",
+      decimals: 18,
+    },
+    rpcUrls: {
+      default: {
+        http: ["https://neoxt4seed1.ngd.network"],
+      },
+      public: {
+        http: ["https://neoxt4seed1.ngd.network"],
+      },
+    },    testnet: true,
+  } as Chain,
 
   // The interval at which your front-end polls the RPC servers for new data
   // it has no effect on the local network
